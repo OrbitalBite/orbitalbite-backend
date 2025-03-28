@@ -14,3 +14,4 @@ staticfiles/
 
 # MacOS
 .DS_Store
+.env
