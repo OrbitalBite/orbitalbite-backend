@@ -5,7 +5,6 @@ __pycache__/
 *.log
 
 # Environment
-.env
 venv/
 
 # Django media and static (optional for dev)
@@ -14,4 +13,3 @@ staticfiles/
 
 # MacOS
 .DS_Store
-.env
