@@ -12,7 +12,7 @@ echo "⬆️  Upgrading pip..."
 pip install --upgrade pip
 
 # 3. Install Django first (bağımlılık çözüm problemi için)
-pip install "Django>=5.0,<5.3"
+pip install --no-cache-dir "Django>=5.0,<5.3"
 
 # 4. Install all requirements
 echo "⬇️  Installing dependencies..."
