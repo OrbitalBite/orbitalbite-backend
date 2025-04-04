@@ -6,7 +6,7 @@ echo "🚀 Starting OrbitalBite backend setup..."
 echo "📦 Creating virtual environment..."
 python3 -m venv venv
 
-# Step 2: Activate virtual environment
+# Step 2: Activate it
 source venv/bin/activate
 
 # Step 3: Upgrade pip
@@ -15,24 +15,19 @@ python -m pip install --upgrade pip
 
 # Step 4: Install requirements
 echo "⬇️  Installing dependencies..."
-pip install -r requirements.txt || {
-  echo "❌ Failed to install dependencies. Trying to install Django manually..."
-  pip install "Django>=5.1,<5.2"
-}
+if ! pip install -r requirements.txt; then
+    echo "❌ Failed to install dependencies. Trying to install Django manually..."
+    pip install "Django>=5.1,<5.2"
+fi
 
-# Step 5: Ensure .env file exists
+# Step 5: Check for .env file
 if [ ! -f ".env" ]; then
-  if [ -f ".env.example" ]; then
-    echo "📄 Copying .env.example to .env..."
-    cp .env.example .env
-  else
-    echo "⚠️  .env.example not found. Please create a .env file manually."
-  fi
+  echo "⚠️  .env file not found. Please create one manually."
 else
   echo "📄 .env file already present."
 fi
 
-# Step 6: Apply migrations
+# Step 6: Run migrations
 echo "📄 Applying database migrations..."
 python manage.py migrate
 
